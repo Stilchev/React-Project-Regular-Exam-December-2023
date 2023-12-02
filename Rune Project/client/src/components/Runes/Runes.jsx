@@ -33,3 +33,44 @@ const diablo2Runes = {
     cham: { number: 32, name: 'Cham', reqLevel: 67 },
     zod: { number: 33, name: 'Zod', reqLevel: 69 },
   };
+
+
+  import React, { useState, useEffect } from 'react';
+
+const RuneTable = () => {
+  const [runes, setRunes] = useState([]);
+
+  useEffect(() => {
+    // Replace 'your-api-endpoint' with the actual API endpoint for the rune data
+    fetch('your-api-endpoint')
+      .then(response => response.json())
+      .then(data => setRunes(data))
+      .catch(error => console.error('Error fetching rune data:', error));
+  }, []);
+
+  return (
+    <div>
+      <h2>Rune Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rune Name</th>
+            <th>Number</th>
+            <th>Level Requirement</th>
+          </tr>
+        </thead>
+        <tbody>
+          {runes.map(rune => (
+            <tr key={rune.number}>
+              <td>{rune.name}</td>
+              <td>{rune.number}</td>
+              <td>{rune.reqLevel}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default RuneTable;

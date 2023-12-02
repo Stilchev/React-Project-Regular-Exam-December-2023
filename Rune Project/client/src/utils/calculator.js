@@ -1,4 +1,4 @@
-function calculateRunesNeeded(runesArray, targetRune) {
+export default function calculateRunesNeeded(runesArray, targetRune) {
     // Find the index of the target rune in the array
     const targetIndex = runesArray.findIndex((rune) => rune.name.toLowerCase() === targetRune.toLowerCase());
   

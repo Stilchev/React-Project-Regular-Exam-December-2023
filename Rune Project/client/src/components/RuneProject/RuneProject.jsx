@@ -1,3 +1,5 @@
+import calculator from '../../utils/calculator'
+
 const diablo2RunesArray = [
     { name: 'El', number: 1, reqLevel: 11, neededFor:  3 , cubable: false, dropped: 0, gems: '' },
     { name: 'Eld', number: 2, reqLevel: 11, neededFor:  3 , cubable: false, dropped: 0, gems: '' },
