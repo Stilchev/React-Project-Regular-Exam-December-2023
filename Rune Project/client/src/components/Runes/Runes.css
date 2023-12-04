@@ -1,0 +1,38 @@
+.runes-table{
+    display: flex;
+    justify-content: center;
+    
+}
+h2{
+    
+}
+table {
+    max-width:  500px;
+    border-collapse: collapse;
+    margin: 50px 0;
+    background-color: #191818;
+  }
+  
+  /* Styling for table header */
+  th {
+    background-color: #191818;
+  }
+  
+  /* Styling for table cells */
+  td, th {
+    padding: 12px;
+    border: 3px solid #ddd;
+    text-align: left;
+    color: goldenrod;
+  }
+  
+  /* Alternating row colors for better readability */
+  tr:nth-child(even) {
+    background-color: #191818;
+  }
+  
+  /* Hover effect on rows */
+  tr:hover {
+    background-color: #3b3a3a;
+    
+  }

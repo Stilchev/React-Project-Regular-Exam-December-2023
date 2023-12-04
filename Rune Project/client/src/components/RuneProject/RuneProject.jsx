@@ -1,4 +1,4 @@
-import calculator from '../../utils/calculator'
+// import calculator from '../../utils/calculator'
 
 const RuneProject = () => {
   return(

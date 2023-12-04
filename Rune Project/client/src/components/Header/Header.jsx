@@ -15,10 +15,10 @@ const Header = () => {
           <Link to="/runes">Runes</Link>
         </li>
         <li>
-          <Link to="/rune-calculator">Rune Calculator</Link>
+          <Link to="/runes-calculator">Rune Calculator</Link>
         </li>
         <li>
-          <Link to="/rune-project">Rune Project</Link>
+          <Link to="/runes-project">Rune Project</Link>
         </li>
         <li>
           <Link to="/hrs">High Runes</Link>

@@ -1,9 +1,9 @@
-@font-face {
+/* @font-face {
   font-family: 'Exocet';
   src: local('Exocet') url('/src/fonts/exocet-blizzard-light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 html {
   box-sizing: border-box;
@@ -15,7 +15,7 @@ html {
 }
 
 body{
-  background-image: url('../public/images/site-background.jpg');
+  background-image: url('/images/site-background.jpg');
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {

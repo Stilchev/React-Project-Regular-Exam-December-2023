@@ -1,6 +1,6 @@
 const RuneCalculator = () => {
     return(
-        <h1>RuneCalculator</h1>
+        <h1>Rune Calculator</h1>
     )
 }
 
