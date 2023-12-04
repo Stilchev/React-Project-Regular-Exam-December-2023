@@ -21,7 +21,7 @@ const Header = () => {
           <Link to="/rune-project">Rune Project</Link>
         </li>
         <li>
-          <Link to="/high-runes">High Runes</Link>
+          <Link to="/hrs">High Runes</Link>
         </li>
         <li>
           <Link to="/login">Login</Link>
