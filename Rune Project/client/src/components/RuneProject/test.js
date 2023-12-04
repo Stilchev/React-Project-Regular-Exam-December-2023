@@ -1,5 +1,3 @@
-import calculator from '../../utils/calculator'
-
 const diablo2RunesArray = [
     { name: 'El', number: 1, reqLevel: 11, neededFor:  3 , cubable: false, dropped: 0, gems: '' },
     { name: 'Eld', number: 2, reqLevel: 11, neededFor:  3 , cubable: false, dropped: 0, gems: '' },
@@ -36,7 +34,8 @@ const diablo2RunesArray = [
     { name: 'Zod', number: 33, reqLevel: 69, neededFor:  0 , cubable: false, dropped: 0, gems: '' },
   ];
 
-  const diablo2RunesObject = diablo2RunesArray.reduce((acc, rune) => {
+
+const diablo2RunesObject = diablo2RunesArray.reduce((acc, rune) => {
     acc[rune.number] = {
       name: rune.name,
       number: rune.number,
@@ -51,4 +50,3 @@ const diablo2RunesArray = [
   }, {});
   
   console.log(diablo2RunesObject);
-  

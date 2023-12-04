@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Exocet'; /* Choose a suitable name for your font */
+    src: url('./fonts/exocet-blizzard-light.ttf') format('truetype'); /* Adjust the path and format as needed */
+    font-weight: normal;
+    font-style: normal;
+  }

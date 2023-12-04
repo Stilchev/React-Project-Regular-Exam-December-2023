@@ -11,7 +11,8 @@ export default function calculateRunesNeeded(runesArray, targetRune) {
     // Calculate the total number of runes needed by multiplying counts in descending order
     let totalRunesNeeded = 1;
     for (let i = targetIndex; i < runesArray.length; i++) {
-      totalRunesNeeded *= runesArray[i].neededForCube.count;
+      totalRunesNeeded *= runesArray[i].neededForCube;
+      runesArray[i].dropped = totalRunesNeeded;
     }
   
     return totalRunesNeeded;
