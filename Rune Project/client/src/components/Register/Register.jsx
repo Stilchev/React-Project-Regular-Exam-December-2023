@@ -1,6 +1,6 @@
 // RegisterForm.jsx
 import React, { useState } from 'react';
-import './Form.css';
+// import './Form.css';
 
 const Register = () => {
   const [username, setUsername] = useState('');

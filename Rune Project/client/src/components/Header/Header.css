@@ -5,7 +5,7 @@
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     overflow: hidden;
     /* background: url('https://blz-contentstack-images.akamaized.net/v3/assets/blt45749e0fed8aa592/blt95a49c836cfd3621/601441483377931068df0e7d/site-bg-xl.jpg') center/cover; */
-    
+    border: 11px double #454242;
   }
   
   .header-background {
@@ -32,6 +32,7 @@
   
   li {
     margin: 0 20px;
+    border-bottom: 1px solid #bd9b4e;
   }
   
   a {
