@@ -6,7 +6,7 @@ const Runes = () => {
   const [runes, setRunes] = useState([]);
 
   useEffect(() => {
-    // Replace 'your-api-endpoint' with the actual API endpoint for the rune data
+    
     fetch('http://localhost:3030/data/runes')
       .then(response => response.json())
       .then(data => setRunes(data))
