@@ -22,6 +22,8 @@ const Runes = () => {
             <th>Rune Name</th>
             <th>Number</th>
             <th>Level Requirement</th>
+            <th>Weapon Bonus</th>
+            <th>Armor/Helm/Shield Bonus</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,8 @@ const Runes = () => {
               <td className='runes-table-cell'><img className='runes-table-image' src={rune.imageUrl} alt="" /><span>{rune.name}</span></td>
               <td><strong className='strong-cell'>{rune.number}</strong></td>
               <td>{rune.reqLevel}</td>
+              <td>{rune.weapon}</td>
+              <td>{rune.armor}</td>
             </tr>
           ))}
         </tbody>

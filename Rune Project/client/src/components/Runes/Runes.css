@@ -3,11 +3,11 @@
     justify-content: center;
     
 }
-h2{
+/* h2{
     
-}
+} */
 table {
-    max-width:  500px;
+    max-width:  1000px;
     border-collapse: collapse;
     margin: 25px 0;
     background-color: #191818;
