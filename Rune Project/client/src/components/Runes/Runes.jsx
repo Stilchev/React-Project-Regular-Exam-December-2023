@@ -27,8 +27,8 @@ const Runes = () => {
         <tbody>
           {runes.map(rune => (
             <tr key={rune.number}>
-              <td>{rune.name}</td>
-              <td>{rune.number}</td>
+              <td className='runes-table-cell'><img className='runes-table-image' src={rune.imageUrl} alt="" /><span>{rune.name}</span></td>
+              <td><strong className='strong-cell'>{rune.number}</strong></td>
               <td>{rune.reqLevel}</td>
             </tr>
           ))}

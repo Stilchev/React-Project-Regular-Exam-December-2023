@@ -1,0 +1,87 @@
+/* .calculator-gem-table{
+    text-align: center;
+    max-width: 1700px;
+    font-size: 1em;
+}
+
+th{
+    text-align: center;
+}
+
+tbody{
+    display: inline-block;
+}
+
+td.calculator-gem-table{
+    float: left;
+    text-align:center;
+    text-wrap: wrap;
+    margin: 0;
+    display: block;
+    max-width: 120px;
+    
+    
+}
+/* td.calculator-gem-table>img{
+    margin-bottom: 0;
+    padding: 0;
+} */
+
+/* .gem{
+    margin: 0;
+    padding: 0;
+    max-width: 30px;
+    float: left;
+}
+
+span{
+    padding-top: 0.7em;
+    text-wrap: wrap;
+}  */
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optionally, set a specific height for vertical centering */
+  }
+
+.calculator-gem-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Adjust as needed */
+    /* margin-left: 25em; */
+  }
+  
+  .calculator-gem-table th, .calculator-gem-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .calculator-gem-table th {
+    background-color: #302f2f;
+  }
+  
+  .calculator-gem-table img {
+    max-width: 50px; /* Adjust the maximum width of the gem images */
+    max-height: 50px; /* Adjust the maximum height of the gem images */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .calculator-gem-table span {
+    display: block;
+    margin-top: 5px; /* Adjust as needed */
+  }
+  
+  /* Add styles for alternate rows */
+  .calculator-gem-table tbody tr:nth-child(even) {
+    background-color: #302f2f;
+  }
+  
+  /* Add styles for the count rows */
+  .calculator-gem-table tbody tr:nth-child(2n) td {
+    background-color: #302f2f;
+  }
+  

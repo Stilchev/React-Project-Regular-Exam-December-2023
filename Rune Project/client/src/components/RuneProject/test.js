@@ -50,3 +50,6 @@ const diablo2RunesObject = diablo2RunesArray.reduce((acc, rune) => {
   }, {});
   
   console.log(diablo2RunesObject);
+
+
+  // armor: '',weapon: ''
