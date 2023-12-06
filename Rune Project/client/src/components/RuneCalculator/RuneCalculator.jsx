@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 // import  RuneButton  from './RuneButton/RuneButton';
 import './RuneCalculator.css'
 
+// const chosenRunes = {
+//     target,
+//     start
+// }
 
 const RuneCalculator = () => {
     const [runes, setRunes] = useState([]);
@@ -14,6 +18,15 @@ const RuneCalculator = () => {
 
             .catch(error => console.error('Error fetching rune data:', error));
     }, []);
+
+const onClickTargetRune = () => {
+
+}
+
+const onClickStartRune = () => {
+
+}
+
 
     return (
         <>
