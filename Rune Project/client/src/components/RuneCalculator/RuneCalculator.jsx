@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react';
-// import  RuneButton  from './RuneButton/RuneButton';
+import calculateRunesNeeded from '../../utils/calculator';
 import './RuneCalculator.css'
+import RuneButton from './RuneButton/RuneButton';
+import StartRuneButton from './StartRuneButton/StartRuneButton';
+import ResultComponent from './ResultComponent/ResultComponent';
 
-// const chosenRunes = {
-//     target,
-//     start
-// }
+let totalRunesNeeded = 1;
+let targetName
+let startName
 
 const RuneCalculator = () => {
     const [runes, setRunes] = useState([]);
+    const [filteredRunes, setFilteredRunes] = useState([])
+    const [targetRune, setTargetRune] = useState(0)
+    const [startRune, setStartRune] = useState(0)
+    const [finalArray, setFinalArray] = useState([])
+    const [finalResult, setFinalResult] = useState([])
 
     useEffect(() => {
 
@@ -16,37 +23,90 @@ const RuneCalculator = () => {
             .then(response => response.json())
             .then(data => setRunes(data))
 
+
             .catch(error => console.error('Error fetching rune data:', error));
     }, []);
 
-const onClickTargetRune = () => {
+    const targetRuneHandler = (runeNumber,name) => {
+        targetName = name
+        const result = runes.slice(0, runeNumber)
 
-}
+        setTargetRune(runeNumber)
+        
+        setFilteredRunes(result)
+    }
 
-const onClickStartRune = () => {
+    const setResultHandler = (result) => {
+        setFinalResult(result)
+    }
 
-}
+    const startRuneHandler = (startRuneNumber,name) => {
+        startName = name
+        const finalArray = filteredRunes.slice(startRuneNumber-1)
+        // setStartRune(startRuneNumber)
+
+        // const result = calculateRunesNeeded(finalArray)
+        // setResultHandler(result)
+        // setFinalArray(finalArray)
+        // // console.log(finalArray);
+        // // console.log(result);
+        // console.log(finalResult);
+        
+    for (let i = finalArray.length-1; i >= 0; i--) {
+        
+      totalRunesNeeded *= finalArray[i].count;
+    //   runesArray[i].dropped = totalRunesNeeded;
+    }
+        console.log(totalRunesNeeded);
+    return totalRunesNeeded;
+        
+    }
+
+    // const clculatorHandler = () => {
+    //     calculateRunesNeeded()
+    // }
 
 
     return (
         <>
-            <div className='calc-container'>
-                {runes.map(rune => (
-                    <div className='calc-button' style={{ display: 'inline-block', flexDirection: 'row', alignItems: 'center' }}>
-                        <button className='calc-button' key={rune.number} >
-                            < div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <img src={rune.imageUrl} alt={rune.name} />
-                                <span>{rune.name}</span>
-                            </div>
+            {!targetRune &&
+                <div className='calc-container'>
+                    <h2>Select Target Rune:</h2>
+                    {runes.map(rune =>
+                        <RuneButton
+                            key={rune.number}
+                            number={rune.number}
+                            name={rune.name}
+                            imageUrl={rune.imageUrl}
+                            targetRuneHandler={targetRuneHandler}
+                        />
+                    )}
 
-                        </button>
-                    </div>
-                ))}
-            </div>
-            {/* {runes.map(rune => (
-                <RuneButton key={rune.number} {...runes} />
-            ))} */}
+                </div>}
+            {targetRune &&
+                <div className='calc-container'>
+                    <h2>Select Start Rune:</h2>
+                    {filteredRunes.map(rune =>
+                        <StartRuneButton
+                            key={rune.number}
+                            number={rune.number}
+                            name={rune.name}
+                            imageUrl={rune.imageUrl}
+                            startRuneHandler={startRuneHandler}
 
+                        />
+                    )}
+
+                </div>
+            }
+            {startName &&<ResultComponent 
+                startName={startName}
+                targetName={targetName}
+                totalRunesNeeded={totalRunesNeeded}
+                />}
+            
+                
+            
 
             <div className="table-container">
                 <table className="calculator-gem-table">

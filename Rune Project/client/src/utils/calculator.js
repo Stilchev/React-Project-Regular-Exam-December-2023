@@ -1,24 +1,20 @@
-// export default function calculateRunesNeeded(runesArray, targetRune) {
-//     // Find the index of the target rune in the array
-//     const targetIndex = runesArray.findIndex((rune) => rune.name.toLowerCase() === targetRune.toLowerCase());
+export default function calculateRunesNeeded(runesArray) {
+//     console.log(startRune);
+//    const slicedRunesArray = runesArray.slice(startRune, targetRune)
+   
   
-//     // If the target rune is not found, return -1 indicating an error
-//     if (targetIndex === -1) {
-//       console.error(`Error: Rune ${targetRune} not found in the array.`);
-//       return -1;
-//     }
+    // Calculate the total number of runes needed by multiplying counts in descending order
+    let totalRunesNeeded = 1;
+    for (let i = runesArray.length-1; i >= 0; i--) {
+        
+      totalRunesNeeded *= runesArray[i].count;
+    //   runesArray[i].dropped = totalRunesNeeded;
+    }
   
-//     // Calculate the total number of runes needed by multiplying counts in descending order
-//     let totalRunesNeeded = 1;
-//     for (let i = targetIndex; i < runesArray.length; i++) {
-//       totalRunesNeeded *= runesArray[i].neededForCube;
-//       runesArray[i].dropped = totalRunesNeeded;
-//     }
+    return totalRunesNeeded;
+  }
   
-//     return totalRunesNeeded;
-//   }
-  
-//   // Example usage:
+  // Example usage:
 //   const berRunesArray = diablo2RunesArray.slice(0, 29); // Array up to Ber rune
 //   const result = calculateRunesNeeded(berRunesArray, 'Zod');
   
