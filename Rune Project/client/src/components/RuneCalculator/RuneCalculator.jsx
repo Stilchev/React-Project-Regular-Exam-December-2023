@@ -46,7 +46,7 @@ const RuneCalculator = () => {
         setFinalArray(finalArray)
         
         let totalRunesNeeded = 1;
-        for (let i = finalArray.length - 1; i >= 0; i--) {
+        for (let i = finalArray.length - 2; i >= 0; i--) {
             
             totalRunesNeeded *= finalArray[i].count;
           

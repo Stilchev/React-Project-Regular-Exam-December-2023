@@ -1,12 +1,102 @@
-// import calculator from '../../utils/calculator'
+import { useEffect, useState } from 'react';
+// import * as request from '../../lib/request'
+import RuneButton from '../RuneCalculator/RuneButton/RuneButton';
+import StartRuneButton from '../RuneCalculator/StartRuneButton/StartRuneButton';
 
 const RuneProject = () => {
-  return(
-    <h1>Rune Project</h1>
-  )
+    const [runeArr, setRuneArr] = useState([])
+    const [targetArr, setTargetArr] = useState([])
+    const [chooseProject, setChooseProject] = useState({ start: 0, target: 0 })
+    const [projectArr, setProjectArr] = useEffect([])
+
+    useEffect(() => {
+
+        fetch('http://localhost:3030/data/runes')
+            .then(response => response.json())
+            .then(data => setRuneArr(data))
+
+
+            .catch(error => console.error('Error fetching rune data:', error));
+    }, []);
+
+    // useEffect(()=>{
+
+    // },[projectArr])
+
+    const targetRuneHandler = (runeNumber, name) => {
+
+        const result = runeArr.slice(0, runeNumber)
+
+        // setTargetRune(runeNumber)
+
+        setTargetArr(result)
+        setChooseProject((state) => ({ ...state, target: runeNumber }))
+    }
+
+
+
+    const startRuneHandler = (startRuneNumber, name) => {
+
+        const projectArr = targetArr.slice(startRuneNumber - 1)
+        // setStartRune(startRuneNumber)
+        setChooseProject((state) => ({ ...state, start: startRuneNumber }))
+        
+        // setFinalArray(finalArray)
+
+
+        // setFinalResult(totalRunesNeeded)
+        // setTargetRune(0)
+        // setResult((state) => ({ ...state, startRuneName: name }))
+        // setResult((state) => ({ ...state, result: totalRunesNeeded }))
+
+    }
+
+    return (
+        <>
+            <h1>Rune Project</h1>
+            {!chooseProject.target &&
+                <div className='calc-container'>
+                    <h2>Select Target Rune:</h2>
+                    {runeArr.map(rune =>
+                        <RuneButton
+                            key={rune.number}
+                            number={rune.number}
+                            name={rune.name}
+                            imageUrl={rune.imageUrl}
+                            targetRuneHandler={targetRuneHandler}
+                        />
+                    )}
+
+                </div>}
+            {chooseProject.target &&
+                <div className='calc-container'>
+                    <h2>Select Start Rune:</h2>
+                    {targetArr.map(rune =>
+                        <StartRuneButton
+                            key={rune.number}
+                            number={rune.number}
+                            name={rune.name}
+                            imageUrl={rune.imageUrl}
+                            startRuneHandler={startRuneHandler}
+
+                        />
+                    )}
+
+                </div>
+            }
+
+        </>
+
+    )
 }
 
 export default RuneProject;
+
+
+
+
+
+
 
 
 
@@ -50,19 +140,3 @@ export default RuneProject;
 //     { name: 'Zod', number: 33, reqLevel: 69, neededFor:  0 , cubable: false, dropped: 0, gems: '' },
 //   ];
 
-//   const diablo2RunesObject = diablo2RunesArray.reduce((acc, rune) => {
-//     acc[rune.number] = {
-//       name: rune.name,
-//       number: rune.number,
-//       reqLevel: rune.reqLevel,
-//       neededForCube: rune.neededForCube,
-//       cubable: rune.cubable,
-//       dropped: rune.dropped,
-//       gems: rune.gems,
-//       usedInProject: false, // Added property with initial value false
-//     };
-//     return acc;
-//   }, {});
-  
-//   console.log(diablo2RunesObject);
-  
