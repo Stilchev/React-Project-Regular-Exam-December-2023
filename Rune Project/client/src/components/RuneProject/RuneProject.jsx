@@ -7,7 +7,7 @@ const RuneProject = () => {
     const [runeArr, setRuneArr] = useState([])
     const [targetArr, setTargetArr] = useState([])
     const [chooseProject, setChooseProject] = useState({ start: 0, target: 0 })
-    const [projectArr, setProjectArr] = useEffect([])
+    const [projectArr, setProjectArr] = useState([])
 
     useEffect(() => {
 
