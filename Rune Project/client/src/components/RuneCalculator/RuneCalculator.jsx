@@ -3,11 +3,8 @@ import calculateRunesNeeded from '../../utils/calculator';
 import './RuneCalculator.css'
 import RuneButton from './RuneButton/RuneButton';
 import StartRuneButton from './StartRuneButton/StartRuneButton';
-import ResultComponent from './ResultComponent/ResultComponent';
+// import ResultComponent from './ResultComponent/ResultComponent';
 
-let totalRunesNeeded = 1;
-let targetName
-let startName
 
 const RuneCalculator = () => {
     const [runes, setRunes] = useState([]);
@@ -15,7 +12,8 @@ const RuneCalculator = () => {
     const [targetRune, setTargetRune] = useState(0)
     const [startRune, setStartRune] = useState(0)
     const [finalArray, setFinalArray] = useState([])
-    const [finalResult, setFinalResult] = useState([])
+    const [finalResult, setFinalResult] = useState()
+    const [result, setResult] = useState({targetRuneName:"", startRuneName:"", result:0})
 
     useEffect(() => {
 
@@ -28,45 +26,55 @@ const RuneCalculator = () => {
     }, []);
 
     const targetRuneHandler = (runeNumber,name) => {
-        targetName = name
+        
         const result = runes.slice(0, runeNumber)
 
         setTargetRune(runeNumber)
         
         setFilteredRunes(result)
+        setResult((state)=>({...state,targetRuneName:name}))
     }
 
-    const setResultHandler = (result) => {
-        setFinalResult(result)
-    }
+    
 
     const startRuneHandler = (startRuneNumber,name) => {
-        startName = name
-        const finalArray = filteredRunes.slice(startRuneNumber-1)
-        // setStartRune(startRuneNumber)
+        
+        const finalArray = filteredRunes.slice(startRuneNumber - 1)
+        setStartRune(startRuneNumber)
 
         // const result = calculateRunesNeeded(finalArray)
         // setResultHandler(result)
-        // setFinalArray(finalArray)
+        setFinalArray(finalArray)
         // // console.log(finalArray);
         // // console.log(result);
         // console.log(finalResult);
-        
-    for (let i = finalArray.length-1; i >= 0; i--) {
-        
-      totalRunesNeeded *= finalArray[i].count;
-    //   runesArray[i].dropped = totalRunesNeeded;
-    }
-        console.log(totalRunesNeeded);
-    return totalRunesNeeded;
-        
-    }
+        let totalRunesNeeded = 1;
+        for (let i = finalArray.length - 1; i >= 0; i--) {
+            
+            totalRunesNeeded *= finalArray[i].count;
+            // finalArray[i].gems = totalRunesNeeded
+            //   runesArray[i].dropped = totalRunesNeeded;
+            
+        }
+        // console.log(totalRunesNeeded);
+        setFinalResult(totalRunesNeeded)
+        setTargetRune(0)
+        // return totalRunesNeeded;
+        setResult((state)=>({...state,startRuneName:name}))
+        setResult((state)=>({...state,result:totalRunesNeeded}))
 
+    }
+    // console.log(finalArray[0]);
+    // console.log(finalArray[finalArray.length-1]);
     // const clculatorHandler = () => {
     //     calculateRunesNeeded()
     // }
-
-
+    // const one = finalArray[0];
+    // const two = finalArray[finalArray.length-1];
+    
+    // console.log(one);
+    // console.log(two);
+    console.log(result);
     return (
         <>
             {!targetRune &&
@@ -99,14 +107,36 @@ const RuneCalculator = () => {
 
                 </div>
             }
-            {startName &&<ResultComponent 
-                startName={startName}
-                targetName={targetName}
+            {/* {startName &&<ResultComponent 
+                startName={one.name}
+                targetName={two.name}
                 totalRunesNeeded={totalRunesNeeded}
-                />}
-            
+                />} */}
                 
-            
+                {result.result &&
+                <>
+                <table className='calc-result'>
+                    <thead>
+                        <tr>
+                            <th>Target Rune</th>
+                            <th>Start Rune</th>
+                            <th>How many {result.startRuneName} for 1 {result.targetRuneName}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{result.targetRuneName}</td>
+                            <td>{result.startRuneName}</td>
+                            <td>{result.result}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {/* <p className='calc-result'>Target:{result.targetRuneName}</p>
+                <p className='calc-result'>Start:{result.startRuneName}</p>
+                <p className='calc-result'>Result{result.result}</p> */}
+                </>
+                }
+                
 
             <div className="table-container">
                 <table className="calculator-gem-table">

@@ -1,6 +1,6 @@
 const RuneButton = ({number,name,imageUrl,targetRuneHandler,startRuneHandler}) => {
     const onClickTargetRune = () => {
-        targetRuneHandler(number,name)
+        targetRuneHandler(number, name)
     }
     
     return(

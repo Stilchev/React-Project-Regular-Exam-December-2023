@@ -112,4 +112,13 @@ span{
     margin-left: 15em;
   }
   
+  p.calc-result{
+    background-color: blanchedalmond;
+    font-size: 2em;
+    color: darkgoldenrod;
+    display: inline-block;
+  }
+  .calc-result{
+    margin-left: 45em;
+  }
   
