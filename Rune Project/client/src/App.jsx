@@ -15,6 +15,8 @@ import RuneCalculator from './components/RuneCalculator/RuneCalculator'
 import HighRunes from './components/HighRunes/HighRunes'
 import RuneProject from './components/RuneProject/RuneProject'
 import Logout from './components/Logout/Logout'
+import CreateHighRune from './components/HighRunes/CreateHighRune/CreateHighRune'
+import HighRunesList from './components/HighRunes/HighRuneList/HighRuneList'
 
 function App() {
     const navigate = useNavigate()
@@ -54,6 +56,7 @@ function App() {
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
+        userId: auth._id,
         username: auth.username,
         email: auth.email,
         isAuthenticated: !!auth.email,
@@ -74,6 +77,8 @@ function App() {
                     <Route path='/hrs' element={<HighRunes />} />
                     <Route path='/runes-project' element={<RuneProject />} />
                     <Route path='/logout' element={<Logout />} />
+                    <Route path='/hrs/list' element={<HighRunesList />} />
+                    <Route path='/hrs/create' element={<CreateHighRune />} />
                     <Route path='/*' element={<Home />} />
                 </Routes>
             </AuthContext.Provider>

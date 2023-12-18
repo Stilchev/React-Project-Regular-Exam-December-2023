@@ -1,0 +1,24 @@
+.create-hrs{
+    display: flex;
+    font-size: 20px;
+    
+}
+
+.create-hrs-form{
+    margin: 0 auto;
+    padding: 5em;
+    gap: 3em;
+}
+
+.create-hrs-form label{
+    margin-right: 3em;
+}
+
+.create-hrs-form option{
+    font-size: 20px;
+}
+
+.btn-create-hrs {
+    margin-left: 2em;
+    font-size: 20px;
+}

@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
-// import './YourComponent.css'; // Import your dark mode CSS file
+import { useNavigate } from 'react-router-dom';
 
-const CreateHighRune = ({ onSubmit, onEdit, details }) => {
-  const [formData, setFormData] = useState({
-    rune: '',
-    zone: '',
-    character: '',
-  });
+import * as hrsService from '../../../services/hrsService'
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+import './CreateHighRune.css'
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-    setFormData({ rune: '', zone: '', character: '' });
-  };
+const CreateHighRune = () => {
+  const navigate = useNavigate();
+    
+    const createHrsSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const hrsData = Object.fromEntries(new FormData(e.currentTarget));
+
+        try {
+            await hrsService.create(hrsData);
+
+            navigate('/hrs/list');
+        } catch (err) {
+            
+            console.log(err);
+        }
+    }
 
   return (
-    <div className="dark-mode-container">
-      <form onSubmit={handleSubmit}>
+    <div className="create-hrs">
+      <form className='create-hrs-form' onSubmit={createHrsSubmitHandler}>
         <div>
           <label>Choose Rune:</label>
-          <select name="rune" value={formData.rune} onChange={handleChange}>
-            {['vex', 'ohm', 'Lo', 'sur', 'ber', 'jah', 'cham', 'zod'].map((rune) => (
-              <option key={rune} value={rune}>
+          <select name="rune" >
+            {['Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'].map((rune) => (
+              <option key={rune}>
                 {rune}
               </option>
             ))}
@@ -39,8 +41,6 @@ const CreateHighRune = ({ onSubmit, onEdit, details }) => {
           <input
             type="text"
             name="zone"
-            value={formData.zone}
-            onChange={handleChange}
             placeholder="Enter zone"
           />
         </div>
@@ -49,19 +49,12 @@ const CreateHighRune = ({ onSubmit, onEdit, details }) => {
           <input
             type="text"
             name="character"
-            value={formData.character}
-            onChange={handleChange}
             placeholder="Enter character"
           />
         </div>
         <div>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={onEdit}>
-            Edit
-          </button>
-          <button type="button" onClick={details}>
-            Details
-          </button>
+          <button className='btn-create-hrs' type="submit">Submit</button>
+          
         </div>
       </form>
     </div>
