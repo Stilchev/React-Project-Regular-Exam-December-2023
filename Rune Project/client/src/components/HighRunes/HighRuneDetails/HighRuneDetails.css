@@ -1,0 +1,27 @@
+.hr-details{
+    display: flex;
+    flex-direction: column;
+    background-color: #151617;
+    margin: 0 auto;
+}
+
+.hr-details p{
+    font-size: 20px;
+    padding: 2em;
+    color: darkgreen;
+}
+
+.details-buttons{
+    margin-left: 45em;
+    
+}
+
+.details-buttons button{
+    margin-left: 5em;
+    font-size: 20px;
+}
+
+.form-comments{
+   
+    margin: 0 auto;
+}

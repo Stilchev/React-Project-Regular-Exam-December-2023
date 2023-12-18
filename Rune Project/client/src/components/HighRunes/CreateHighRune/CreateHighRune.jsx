@@ -31,7 +31,7 @@ const CreateHighRune = () => {
           <select name="rune" >
             {['Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'].map((rune) => (
               <option key={rune}>
-                {rune}
+                {rune} 
               </option>
             ))}
           </select>

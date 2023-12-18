@@ -12,11 +12,11 @@ const HighRunes = () => {
         </button>
       </Link>
 
-      <Link to="/hrs/my" style={{ textDecoration: 'none' }}>
+      {/* <Link to="/hrs/my" style={{ textDecoration: 'none' }}>
         <button style={{ fontSize: '24px', margin: '10px' }}>
           Your High Runes
         </button>
-      </Link>
+      </Link> */}
 
       <Link to="/hrs/create" style={{ textDecoration: 'none' }}>
         <button style={{ fontSize: '24px', margin: '10px' }}>
