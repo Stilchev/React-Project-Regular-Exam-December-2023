@@ -1,27 +1,30 @@
 import { Link } from "react-router-dom";
 
+import './HighRunes.css'
+
 const HighRunes = () => {
     return(
-        <div>
-      <Link to="/all-high-runes-list" style={{ textDecoration: 'none' }}>
+      <div id="hrs-logged">
+        <div className="hrs">
+      <Link to="/hrs/list" style={{ textDecoration: 'none' }}>
         <button style={{ fontSize: '24px', margin: '10px' }}>
           All High Runes List
         </button>
       </Link>
 
-      <Link to="/your-high-runes" style={{ textDecoration: 'none' }}>
+      <Link to="/hrs/my" style={{ textDecoration: 'none' }}>
         <button style={{ fontSize: '24px', margin: '10px' }}>
           Your High Runes
         </button>
       </Link>
 
-      <Link to="/add-new-high-rune" style={{ textDecoration: 'none' }}>
+      <Link to="/hrs/create" style={{ textDecoration: 'none' }}>
         <button style={{ fontSize: '24px', margin: '10px' }}>
           Add New High Rune
         </button>
       </Link>
     </div>
-  
+    </div>
 
     )
 }
