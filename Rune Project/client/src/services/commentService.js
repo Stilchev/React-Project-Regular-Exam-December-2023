@@ -2,10 +2,9 @@ import * as request from '../lib/request';
 
 const baseUrl = 'http://localhost:3030/data/comments';
 
-export const getAll = async (gameId) => {
+export const getAll = async (hrId) => {
     const query = new URLSearchParams({
-        where: `gameId="${gameId}"`,
-        load: `owner=_ownerId:users`,
+        where: `hrId="${hrId}"`
     });
 
     const result = await request.get(`${baseUrl}?${query}`);
@@ -15,7 +14,7 @@ export const getAll = async (gameId) => {
 
 export const create = async (hrId, username, text) => {
     const newComment = await request.post(baseUrl, {
-        gameId,
+        hrId,
         username, 
         text,
     });

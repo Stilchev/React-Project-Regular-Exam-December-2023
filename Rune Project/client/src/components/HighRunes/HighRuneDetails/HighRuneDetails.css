@@ -25,3 +25,14 @@
    
     margin: 0 auto;
 }
+
+.details-comments{
+    padding-left: 5em;
+    background-color: darkgray;
+    margin-bottom: 2em;
+}
+
+.details-comments h2{
+    margin: 0 auto;
+    
+}

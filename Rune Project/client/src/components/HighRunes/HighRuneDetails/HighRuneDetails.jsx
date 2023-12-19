@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../../contexts/authContext";
 import { Link } from "react-router-dom";
@@ -11,16 +11,19 @@ import { pathToUrl } from "../../../utils/pathUtils";
 
 const HighRuneDetails = () => {
     const navigate = useNavigate();
-    const { email, userId } = useContext(AuthContext)
+    const { email, userId, isAuthenticated } = useContext(AuthContext)
     const [hr, setHr] = useState({});
     const [comments, setComments] = useState([]);
     const { hrId } = useParams();
+
+    const authorRef = useRef(null);
+  const commentRef = useRef(null);
 
     useEffect(() => {
         hrsService.getOne(hrId)
             .then(setHr)
 
-        commentService.getAll()
+        commentService.getAll(hrId)
             .then(setComments);
     }, [hrId])
 
@@ -45,7 +48,11 @@ const HighRuneDetails = () => {
             formData.get('comment')
         );
 
-        console.log(newComment);
+        setComments(state => [...state, newComment])
+        // navigate(`/hrs/:${hrId}`)
+        authorRef.current.value = '';
+        commentRef.current.value = '';
+
     }
 
     return (
@@ -62,28 +69,33 @@ const HighRuneDetails = () => {
             {userId === hr._ownerId && (
                 <div className="details-buttons">
 
-                    <Link to={pathToUrl('/hrs/:hrId/edit', { hrId })} element={<HighRuneEdit {...hr}/>}>
+                    <Link to={pathToUrl('/hrs/:hrId/edit', { hrId })} element={<HighRuneEdit {...hr} />}>
                         <button type="button">Edit</button>
                     </Link>
                     <button type="button" onClick={deleteButtonClickHandler}>Delete</button>
                 </div>
             )}
 
-            {comments.map(({ username, text }) => (
-                <li className="comment">
-                    <p>{username}: {text}</p>
-                </li>
-            ))}
+            <div className="details-comments">
+                <h2>Comments:</h2>
+                <ul>
+                    {comments.map(({ _id, username, text }) => (
+                        <li key={_id} className="comment">
+                            <p>{username}: {text}</p>
+                        </li>
+                    ))}
+                </ul>
+                {comments.length === 0 && (
+                    <p className="no-comment">No comments.</p>
+                )}
+            </div>
+            {isAuthenticated &&
+                <form className="form-comments" onSubmit={addCommentHandler}>
+                    <input type="text" ref={authorRef} name="username" placeholder="username" />
+                    <textarea name="comment" ref={commentRef} placeholder="Comment......"></textarea>
+                    <input className="btn submit" type="submit" value="Add Comment" />
+                </form>}
 
-            {comments.length === 0 && (
-                <p className="no-comment">No comments.</p>
-            )}
-
-            <form className="form-comments" onSubmit={addCommentHandler}>
-                <input type="text" name="username" placeholder="username" />
-                <textarea name="comment" placeholder="Comment......"></textarea>
-                <input className="btn submit" type="submit" value="Add Comment" />
-            </form>
 
         </section>
     )
