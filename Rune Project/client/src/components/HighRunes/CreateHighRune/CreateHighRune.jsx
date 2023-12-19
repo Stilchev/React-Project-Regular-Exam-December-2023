@@ -7,21 +7,21 @@ import './CreateHighRune.css'
 
 const CreateHighRune = () => {
   const navigate = useNavigate();
-    
-    const createHrsSubmitHandler = async (e) => {
-        e.preventDefault();
 
-        const hrsData = Object.fromEntries(new FormData(e.currentTarget));
+  const createHrsSubmitHandler = async (e) => {
+    e.preventDefault();
 
-        try {
-            await hrsService.create(hrsData);
+    const hrsData = Object.fromEntries(new FormData(e.currentTarget));
 
-            navigate('/hrs/list');
-        } catch (err) {
-            
-            console.log(err);
-        }
+    try {
+      await hrsService.create(hrsData);
+
+      navigate('/hrs/list');
+    } catch (err) {
+
+      console.log(err);
     }
+  }
 
   return (
     <div className="create-hrs">
@@ -31,14 +31,15 @@ const CreateHighRune = () => {
           <select name="rune" >
             {['Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'].map((rune) => (
               <option key={rune}>
-                {rune} 
+                {rune}
               </option>
             ))}
           </select>
         </div>
         <div>
-          <label>Zone:</label>
+          <label >Zone:</label>
           <input
+            className='create-hr-zone'
             type="text"
             name="zone"
             placeholder="Enter zone"
@@ -54,7 +55,7 @@ const CreateHighRune = () => {
         </div>
         <div>
           <button className='btn-create-hrs' type="submit">Submit</button>
-          
+
         </div>
       </form>
     </div>

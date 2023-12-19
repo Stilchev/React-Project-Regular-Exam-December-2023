@@ -54,6 +54,7 @@ const RuneCalculator = () => {
         }
         setFinalResult(totalRunesNeeded)
         setTargetRune(0)
+        setStartRune(0)
         setResult((state)=>({...state,startRuneName:name}))
         setResult((state)=>({...state,result:totalRunesNeeded}))
 

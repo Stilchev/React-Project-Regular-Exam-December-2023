@@ -2,16 +2,23 @@
     display: flex;
     font-size: 20px;
     
+    
 }
 
 .create-hrs-form{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     margin: 0 auto;
     padding: 5em;
     gap: 3em;
+    border: 3px double darkgoldenrod;
 }
 
 .create-hrs-form label{
     margin-right: 3em;
+    
 }
 
 .create-hrs-form option{
@@ -19,6 +26,11 @@
 }
 
 .btn-create-hrs {
-    margin-left: 2em;
+    margin-left: 7em;
     font-size: 20px;
+}
+
+.create-hr-zone{
+    padding-left: 2em;
+    margin-left: 5em;
 }
