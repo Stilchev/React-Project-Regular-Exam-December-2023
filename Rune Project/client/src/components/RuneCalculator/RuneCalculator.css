@@ -42,8 +42,14 @@ span{
 .table-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh; /* Optionally, set a specific height for vertical centering */
+    /* align-items: center; */
+    /* height: 100vh;  */
+    margin-top: 5em;
+  }
+
+  .table-container div{
+   
+   padding-top: 5em;
   }
 
 .calculator-gem-table {

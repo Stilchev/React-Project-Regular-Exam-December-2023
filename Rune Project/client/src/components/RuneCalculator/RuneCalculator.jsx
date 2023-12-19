@@ -44,6 +44,7 @@ const RuneCalculator = () => {
         setStartRune(startRuneNumber)
 
         setFinalArray(finalArray)
+        console.log(finalArray);
         
         let totalRunesNeeded = 1;
         for (let i = finalArray.length - 2; i >= 0; i--) {

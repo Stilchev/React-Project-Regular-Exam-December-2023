@@ -1,4 +1,4 @@
-const diablo2RunesObject = {
+export const diablo2RunesObject = {
     "1": { name: "El", number: 1, reqLevel: 11, neededForCube: { higherRune: "Eld", count: 3 }, cubable: false, dropped: 0, gems: "", usedInProject: false },
     "2": { name: "Eld", number: 2, reqLevel: 11, neededForCube: { higherRune: "Tir", count: 3 }, cubable: false, dropped: 0, gems: "", usedInProject: false },
     "3": { name: "Tir", number: 3, reqLevel: 13, neededForCube: { higherRune: "Nef", count: 3 }, cubable: false, dropped: 0, gems: "", usedInProject: false },

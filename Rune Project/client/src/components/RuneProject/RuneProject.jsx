@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 // import * as request from '../../lib/request'
 import RuneButton from '../RuneCalculator/RuneButton/RuneButton';
 import StartRuneButton from '../RuneCalculator/StartRuneButton/StartRuneButton';
+import Project from './Project/Project';
 
 const RuneProject = () => {
     const [runeArr, setRuneArr] = useState([])
@@ -42,7 +43,7 @@ const RuneProject = () => {
         setChooseProject((state) => ({ ...state, start: startRuneNumber }))
         
         // setFinalArray(finalArray)
-
+        setProjectArr(projectArr)
 
         // setFinalResult(totalRunesNeeded)
         // setTargetRune(0)
@@ -84,6 +85,8 @@ const RuneProject = () => {
 
                 </div>
             }
+
+            {projectArr && <Project {...projectArr}/>}
 
         </>
 

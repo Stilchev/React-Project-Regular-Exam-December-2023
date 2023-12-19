@@ -62,7 +62,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Sokka@gmail.com"
+                placeholder="Your email"
                 onChange={onChange}
                 value={values.email}
             />

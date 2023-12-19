@@ -31,9 +31,9 @@ const Header = () => {
                             <li>
                                 <Link to="/hrs">High Runes</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/runes-project">Rune Project</Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to="/logout">Logout</Link>
                                 
@@ -57,11 +57,11 @@ const Header = () => {
                             <li>
                                 <Link to="/runes-calculator">Rune Calculator</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/runes-project">Rune Project</Link>
-                            </li>
+                            </li> */}
                             <li>
-                                <Link to="/hrs">High Runes</Link>
+                                <Link to="/hrs/list">High Runes</Link>
                             </li>
                             <li>
                                 <Link to="/login">Login</Link>
