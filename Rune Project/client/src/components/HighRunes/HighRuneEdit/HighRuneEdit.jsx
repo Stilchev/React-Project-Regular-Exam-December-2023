@@ -1,11 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import * as hrsService from '../../../services/hrsService'
 import { useEffect, useState } from 'react';
-import useForm from '../../../hooks/useForm';
 
 const HighRuneEdit = () => {
     const navigate = useNavigate()
-    const hrId = useParams()
+    const {hrId} = useParams()
     const [hr, setHr] = useState({
         rune: '',
         zone: '',
@@ -46,13 +45,20 @@ const HighRuneEdit = () => {
       <form className='create-hrs-form' onSubmit={editGameSubmitHandler}>
         <div>
           <label>Choose Rune:</label>
-          <select name="rune" >
+          <input
+            type="text"
+            name="rune"
+            placeholder="Enter name"
+            value={hr.rune}
+            onChange={onChange}
+          />
+          {/* <select name="rune" >
             {['Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'].map((rune) => (
               <option key={rune}>
                 {rune} 
               </option>
             ))}
-          </select>
+          </select> */}
         </div>
         <div>
           <label>Zone:</label>
@@ -84,3 +90,4 @@ const HighRuneEdit = () => {
 }
 
 export default HighRuneEdit;
+

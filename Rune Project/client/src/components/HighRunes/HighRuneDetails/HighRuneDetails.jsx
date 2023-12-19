@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../../contexts/authContext";
 import { Link } from "react-router-dom";
+import HighRuneEdit from "../HighRuneEdit/HighRuneEdit";
 
 import * as hrsService from '../../../services/hrsService'
 import * as commentService from '../../../services/commentService'
@@ -61,7 +62,7 @@ const HighRuneDetails = () => {
             {userId === hr._ownerId && (
                 <div className="details-buttons">
 
-                    <Link to={pathToUrl('/hrs/:hrId/edit', { hrId })} >
+                    <Link to={pathToUrl('/hrs/:hrId/edit', { hrId })} element={<HighRuneEdit {...hr}/>}>
                         <button type="button">Edit</button>
                     </Link>
                     <button type="button" onClick={deleteButtonClickHandler}>Delete</button>
